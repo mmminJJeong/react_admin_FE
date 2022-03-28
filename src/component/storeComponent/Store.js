@@ -3,6 +3,26 @@ import Form from ".././utilComponenet/formComponent/FormComponent";
 import BASE_URL from "../../utils/Api";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import styled from "styled-components";
+
+const SubmitBtn = styled.button`
+width: 70px;
+border-radius: 4px;
+border: none;
+background: #e6d8b1;
+height: 35px;
+line-height: 1.5em;
+text-align: center;
+color: #333;
+font-weight: 600;
+font-size:18px;
+cursor: pointer;
+&:hover {
+  background-color: #f2bc36;
+  color: #fff;
+  transition: 0.2s;
+}
+`
 
 const gridColumn = [
   { key: "cname", width: 150, label: "사업자명", align: "center" },
@@ -83,24 +103,13 @@ export default function Home() {
             <div className="content-title">
               <h3>입점사관리</h3>
             </div>
-            <button
-              style={{
-                float: "right",
-                width: "70px",
-                borderRadius: "4px",
-                border: "none",
-                background: "red",
-                height: "30px",
-                lineHeight: "1.5em",
-                textAlign: "center",
-                color: "white",
-                fontSize: "20px",
-                cursor: "pointer",
-              }}
-              onClick={handelCreate}
-            >
-              전송
-            </button>
+            <div className="btn-wrap">
+              <SubmitBtn
+                onClick={handelCreate}
+              >
+                전송
+              </SubmitBtn>
+            </div>
             <div style={{ display: "flex" }}>
               <Grid gridColumn={gridColumn} gridData={viewData} />
               <Form
@@ -109,14 +118,14 @@ export default function Home() {
                   { value: { name: "bnumber", text: "사업자등록번호" } },
                   { value: { name: "ctype1", text: "업종" } },
                   { value: { name: "ctype2", text: "업태" } },
-                  { value: { name: "dname", text: "대표자명" } },
-                  { value: { name: "dphone", text: "대표전화" } },
-                  { value: { name: "dfax", text: "대표팩스" } },
-                  { value: { name: "damName", text: "담당자명" } },
-                  { value: { name: "damPhone", text: "담당자전화" } },
-                  { value: { name: "damCp", text: "담당자휴대폰" } },
-                  { value: { name: "damEmail", text: "담당자이메일" } },
-                  { value: { name: "zipcode", text: "도로명" } },
+                  { value: { name: "dname", text: "대표자 명" } },
+                  { value: { name: "dphone", text: "대표 전화" } },
+                  { value: { name: "dfax", text: "대표 팩스" } },
+                  { value: { name: "damName", text: "담당자 명" } },
+                  { value: { name: "damPhone", text: "담당자 전화" } },
+                  { value: { name: "damCp", text: "담당자 휴대폰" } },
+                  { value: { name: "damEmail", text: "담당자 이메일" } },
+                  { value: { name: "zipcode", text: "도로 명" } },
                   { value: { name: "addr1", text: "주소" } },
                   { value: { name: "addr2", text: "상세주소" } },
                   { value: { name: "usedomain", text: "도메인" } },

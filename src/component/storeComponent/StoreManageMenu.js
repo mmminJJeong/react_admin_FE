@@ -16,7 +16,7 @@ export default function StoreManageMenu() {
   const [modalFormData, setModalFormData] = useState({}); // 메뉴 그리드 Post 데이터
   const [treeMenu, setTreeMenu] = useState([]); // Tree 메뉴 데이터
   const [companyNo, setCompanyNo] = useState("1"); // select box 회사 코드 데이터
-  const [menuIndexNo, setMenuIndexNo] = useState(""); 
+  const [menuIndexNo, setMenuIndexNo] = useState("");
   const [groupIndexNo, setGroupIndexNo] = useState(""); // modal 안에 grid/form Group IndexNo 지정
   const [menuColumnList, setMenuColumnList] = useState([]); // 메뉴 그리드 Get 데이터
   const [selectCompany, setSelectCompany] = useState([]); // 입점사 Select 데이터
@@ -203,12 +203,14 @@ export default function StoreManageMenu() {
             <div className="content-title">
               <h3>입점사사용 메뉴 관리</h3>
             </div>
-            <button className="mes-button" onClick={addMenu}>
-              전송
-            </button>
-            <button className="mes-button" onClick={addFormGroup}>
-              폼 그룹 데이터
-            </button>
+            <div className="btn-wrap">
+              <button className="mes-button" onClick={addMenu}>
+                전송
+              </button>
+              <button className="mes-button" onClick={addFormGroup}>
+                폼 그룹 데이터
+              </button>
+            </div>
             <div>
               <select onChange={changeSelect}>
                 {selectCompany.map((item) => (

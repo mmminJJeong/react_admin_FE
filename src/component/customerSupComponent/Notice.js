@@ -3,12 +3,50 @@ import Form from ".././utilComponenet/formComponent/FormComponent";
 import { useCallback, useEffect, useState } from "react";
 import BASE_URL from "../../utils/Api";
 import axios from "axios";
+import styled from "styled-components";
+
+const SubmitBtn = styled.button`
+width: 70px;
+border-radius: 4px;
+border: none;
+background: #e6d8b1;
+height: 35px;
+line-height: 1.5em;
+text-align: center;
+color: #222;
+font-weight: 600;
+font-size:18px;
+cursor: pointer;
+&:hover {
+  background-color: #f2bc36;
+  color: #fff;
+  transition: 0.2s;
+}`
+
+const EditBtn = styled.button`
+width: 70px;
+border-radius: 4px;
+border: none;
+background: #e6d8b1;
+height: 35px;
+line-height: 1.5em;
+text-align: center;
+color: #222;
+font-weight: 600;
+font-size:18px;
+margin-left: 10px;
+cursor: pointer;
+&:hover {
+  background-color: #f2bc36;
+  color: #fff;
+  transition: 0.2s;
+}`
 
 export default function Notice() {
   const [boardData, setBoardData] = useState({
     subject: "",
     memo: "",
-    files: [{filename:""}],
+    files: [{ filename: "" }],
   });
   const [gridData, setGridData] = useState([]);
   const gridColumn = [
@@ -168,43 +206,18 @@ export default function Notice() {
             <div className="content-title">
               <h3>공지사항</h3>
             </div>
-            <button
-              style={{
-                float: "right",
-                width: "70px",
-                borderRadius: "4px",
-                border: "none",
-                background: "red",
-                height: "30px",
-                lineHeight: "1.5em",
-                textAlign: "center",
-                color: "white",
-                fontSize: "20px",
-                cursor: "pointer",
-              }}
-              onClick={addBoard}
-            >
-              등록
-            </button>
-            <button
-              style={{
-                float: "right",
-                width: "70px",
-                borderRadius: "4px",
-                border: "none",
-                background: "skyblue",
-                height: "30px",
-                lineHeight: "1.5em",
-                textAlign: "center",
-                color: "white",
-                fontSize: "20px",
-                cursor: "pointer",
-                marginRight: "10px",
-              }}
-              onClick={updateBoard}
-            >
-              수정
-            </button>
+            <div className="btn-wrap">
+              <SubmitBtn
+                onClick={addBoard}
+              >
+                등록
+              </SubmitBtn>
+              <EditBtn
+                onClick={updateBoard}
+              >
+                수정
+              </EditBtn>
+            </div>
             <div style={{ display: "flex" }}>
               <Grid
                 gridColumn={gridColumn}

@@ -16,7 +16,7 @@ export default function HEADER() {
     <div id="headerIn">
       <div className="header-top">
         <div className="logos" style={{ lineHeight: "1" }}>
-          Godomall 5
+          broanex
         </div>
         <div className="gnbTop">
           <ul className="list1">
